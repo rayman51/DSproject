@@ -17,22 +17,10 @@
 		<input type="submit" value="Show Cars" style="height:25px;width:150px"/>
 	</form>
 	<form action= "Bookings" method="get">
-		<input type="submit" value="Show Bookings" style="height:25px;width:150px"/>
+		<input type="submit" value="Show & Add New Bookings" style="height:25px;width:150px"/>
 	</form>
 	
 	
-	<form action= "Bookings" method="get">
-		<br/> Name <br/>
-		<input type="text" name="Name" style="height:20px;width:150px"/>
-		<br/> Address <br/>
-		<input type="text" name="Address" style="height:20px;width:150px"/>
-		<br/> Make <br/>
-		<input type="text" name="Make" style="height:20px;width:150px"/>
-		<br/> Model <br/>
-		<input type="text" name="Model" style="height:20px;width:150px"/>
-		<br/><br/>
-		<input type="submit" value="Make Booking" style="height:25px;width:150px"/>
-	</form>
 	
 </body>
 </html>

@@ -66,13 +66,19 @@ public class BookingServlet extends HttpServlet {
 			add(request, response);
 
 		} // if
-
+			doGet(request, response);
 	}// doPost
 
+	@SuppressWarnings("unused")
 	private void add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		// TODO Auto-generated method stub
 		Client client = Client.create();
-		client.resource("http://localhost:8080/WebService/webapi/bookinglist/add").post();
+		Customer customer = new Customer(request.getParameter("name"), request.getParameter("address"));
+		Vehicle vehicle = new Vehicle(request.getParameter("reg"), request.getParameter("make"), request.getParameter("model"), true);
+		Booking booking = new Booking(vehicle,customer);
+		Gson gson = new Gson();
+		String json = gson.toJson(booking);
+		client.resource("http://localhost:8080/WebService/webapi/bookinglist/add").type(MediaType.APPLICATION_JSON).post();
 	}
 
 	public void del(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -89,7 +95,9 @@ public class BookingServlet extends HttpServlet {
 	public void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Client client = Client.create();
 		
-		client.resource("http://localhost:8080/WebService/webapi/bookinglist/add").put();
+		client.resource("http://localhost:8080/WebService/webapi/bookinglist/update").put();
 		}// update
+	
+	
 
 }

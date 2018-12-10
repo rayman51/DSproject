@@ -60,8 +60,8 @@ tr:nth-child(even) {
 			</tr>
 		</c:forEach>
 	</table>
-
-	<form action="Bookings" method="post">
+	<h3>Create a New  Booking</h3>
+	<form action="Bookings" method=post>
 		<br />Car Reg<br />
 		 <input type="text" name="reg"style="height: 30px; width: 200px" /> 
 		<br />Your Name<br />

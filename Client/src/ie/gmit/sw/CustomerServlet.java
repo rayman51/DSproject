@@ -61,7 +61,7 @@ public class CustomerServlet extends HttpServlet {
 			update(request, response);
 
 		} // if
-
+			doGet(request, response);
 	}// doPost
 
 	public void del(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -70,26 +70,17 @@ public class CustomerServlet extends HttpServlet {
 		Client client = Client.create();
 
 		// Request a connection to the Jax rs service
-		WebResource wr = client.resource("http://localhost:8080/WebService/webapi/customerlist/delete");
+		client.resource("http://localhost:8080/WebService/webapi/customerlist/delete").delete();
 
-		// Get a response from the service
-		String r = wr.accept(MediaType.APPLICATION_JSON).get(String.class);
-
-		Gson gson = new Gson();
-
-		Type listType = new TypeToken<ArrayList<Customer>>() {
-		}.getType();
-
-		List<Customer> customers = gson.fromJson(r, listType);
-
-		request.setAttribute("customers", customers);
-		request.getRequestDispatcher("/WEB-INF/Customers.jsp").forward(request, response);
 
 	}// del
 
 	public static void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getRequestDispatcher("/WEB-INF/Customers.jsp").forward(request, response);
-	}// update
+		// Create a client
+				Client client = Client.create();
+
+				// Request a connection to the Jax rs service
+				client.resource("http://localhost:8080/WebService/webapi/customerlist/delete").put();	}// update
 
 }// CustomerServlet

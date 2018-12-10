@@ -29,7 +29,7 @@ public class VehicleServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("vehicle broke");
+		//System.out.println("vehicle broke");
 
 		// Create a client
 		Client client = Client.create();
@@ -62,6 +62,7 @@ public class VehicleServlet extends HttpServlet {
 			update(request, response);
 
 		} // if
+			doGet(request, response);
 
 	}// doPost
 
@@ -71,25 +72,17 @@ public class VehicleServlet extends HttpServlet {
 		Client client = Client.create();
 
 		// Request a connection to the Jax rs service
-		WebResource wr = client.resource("http://localhost:8080/WebService/webapi/vehiclelist/delete");
+		client.resource("http://localhost:8080/WebService/webapi/vehiclelist/delete").delete();
 
 		// Get a response from the service
-		String r = wr.accept(MediaType.APPLICATION_JSON).get(String.class);
-
-		Gson gson = new Gson();
-
-		Type listType = new TypeToken<ArrayList<Vehicle>>() {
-		}.getType();
-
-		List<Vehicle> vehicles = gson.fromJson(r, listType);
-
-		request.setAttribute("vehicles", vehicles);
-		request.getRequestDispatcher("/WEB-INF/Vehicles.jsp").forward(request, response);
 
 	}// del
 
 	public void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getRequestDispatcher("/WEB-INF/Vehicles.jsp").forward(request, response);
+		Client client = Client.create();
+
+		// Request a connection to the Jax rs service
+		client.resource("http://localhost:8080/WebService/webapi/vehiclelist/update").put();
 	}// update
 }// VehicleServlet
