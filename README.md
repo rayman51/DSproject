@@ -13,6 +13,7 @@ Open eclipse oxygen EE (or whatever version you have on your machine but it must
 * Database-Service
 * Booking-Server
 * Client
+There is also a lib folder containing the jar files for the project.
 
 1. Click on the server tab in eclipse and add new apache server v7.0.
 2. Right click on Database-Service and choose run as java application after a second or two you will be prompted to choose RMISetup.java with the package ie.gmit.sw and then click ok. This will create and populate a h2 database for use.
