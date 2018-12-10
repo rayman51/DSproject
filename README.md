@@ -25,9 +25,11 @@ Once the progam is running a web page will open with 3 buttons
 * Show Vehicles
 * Show & Add Bookings
 
-By Clickiing on customers, a list of customers is displayed
-By Clickiing on vehicles, a list of vehicles is displayed
-By Clickiing on bookings, a list of bookings is displayed
+By Clicking on customers, a list of customers is displayed  
+
+By Clicking on vehicles, a list of vehicles is displayed
+
+By Clicking on bookings, a list of bookings is displayed
 
 On each page there are also update and delete buttons and on the booking page there is a button to create a new booking.
 Unfortunately, this project is incomplete as I was unable to meet the criteria for the Create/Modify/Update/Delete functionality.
